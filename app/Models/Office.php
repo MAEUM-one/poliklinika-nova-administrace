@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Log;
 
 class Office extends Model
 {
@@ -28,7 +29,6 @@ class Office extends Model
         'NAME', 'INFO', 'ACTUAL_INFO', 'WEB', 'NUMBER', 'EMAIL', 'POSITION',
         'ICON', 'COMPANY', 'HIDDEN'
     ];
-
     public function hours(): BelongsTo
     {
         return $this->belongsTo(Hours::class, 'HOURS_ID', 'HOURS_ID');
@@ -71,13 +71,17 @@ class Office extends Model
             },
             set: function($value) use ($day, $index) {
                 $o = match ($index) {
-                    2 => $this->hours2(),
-                    3 => $this->hours3(),
-                    4 => $this->hours4(),
-                    default => $this->hours(),
+                    2 => $this->hours2()->first(),
+                    3 => $this->hours3()->first(),
+                    4 => $this->hours4()->first(),
+                    default => $this->hours()->first(),
                 };
-                if ($o->first())
-                    $o->update([$day => $value]);
+                if ($o) {
+                    dd($o);
+                    Log::debug($value . $day);
+                    $o->{$day} = $value;
+                    $o->save();
+                }
             }
         );
     }

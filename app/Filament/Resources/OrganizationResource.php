@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrganizationResource extends Resource
 {
     protected static ?string $model = Organization::class;
+    protected static ?string $recordTitleAttribute = 'NAME';
 
     protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
 

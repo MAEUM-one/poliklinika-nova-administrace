@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OfficeResource\Pages;
+use App\Filament\Resources\OfficeResource\RelationManagers\PeopleRelationManager;
 use App\Models\Office;
 use App\Models\Person;
 use Filament\Forms;
@@ -21,7 +22,7 @@ use TomatoPHP\FilamentIcons\Components\IconPicker;
 class OfficeResource extends Resource
 {
     protected static ?string $model = Office::class;
-
+    protected static ?string $recordTitleAttribute = 'NAME';
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
 
     protected static ?string $label = 'Ordinace';
@@ -71,7 +72,7 @@ class OfficeResource extends Resource
                     ->label('Společnost'),
                 Forms\Components\Toggle::make('HIDDEN')
                     ->label('Skryto'),
-                Forms\Components\Repeater::make('people')
+                /*Forms\Components\Repeater::make('people')
                     ->columnSpan(2)
                     ->label('Seznam osob')
                     ->relationship('people')
@@ -80,7 +81,7 @@ class OfficeResource extends Resource
                         Forms\Components\Select::make('PERSON_ID')
                             ->label('Osoba')
                             ->options($persons)
-                    ),
+                    ),*/
                 Section::make('Otevírací doba')->schema([
                 Grid::make()
                     ->schema([
@@ -176,6 +177,11 @@ class OfficeResource extends Resource
                 Tables\Columns\BooleanColumn::make('HIDDEN')->label('Skryto'),
             ])
             ->filters([]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [PeopleRelationManager::class];
     }
 
     public static function getPages(): array
