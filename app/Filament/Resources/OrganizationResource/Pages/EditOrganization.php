@@ -15,7 +15,8 @@ class EditOrganization extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
-            $this->getSaveFormAction()->action('save'),
+            $this->getSaveFormAction()->submit(null)
+                ->action(fn() => $this->save()),
             $this->getCancelFormAction()
         ];
     }
