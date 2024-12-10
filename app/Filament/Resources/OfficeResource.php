@@ -17,6 +17,7 @@ use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Model;
+use Rawilk\FilamentQuill\Filament\Forms\Components\QuillEditor;
 use TomatoPHP\FilamentIcons\Components\IconPicker;
 
 class OfficeResource extends Resource
@@ -55,11 +56,11 @@ class OfficeResource extends Resource
 
                 Forms\Components\TextInput::make('WEB')
                     ->label('Webové stránky'),
-                Forms\Components\RichEditor::make('INFO')
+                QuillEditor::make('INFO')
                     ->label('Informace')
                         ->columnSpan(2)
                     ->required(),
-                Forms\Components\RichEditor::make('ACTUAL_INFO')
+                QuillEditor::make('ACTUAL_INFO')
                     ->label('Aktuální informace')
                     ->columnSpan(2),
                 Forms\Components\TextInput::make('NUMBER')

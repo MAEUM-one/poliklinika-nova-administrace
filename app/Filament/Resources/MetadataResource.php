@@ -10,6 +10,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Filament\Tables;
+use Rawilk\FilamentQuill\Filament\Forms\Components\QuillEditor;
+
 class MetadataResource extends Resource
 {
     protected static ?string $model = Metadata::class;
@@ -55,7 +57,7 @@ class MetadataResource extends Resource
                         Forms\Components\TextInput::make('HEADER')
                             ->label('Nadpis')
                             ->required(),
-                        Forms\Components\RichEditor::make('CONTENT')
+                        QuillEditor::make('CONTENT')
                             ->label('Obsah')
                             ->required(),
                         Forms\Components\Hidden::make('LANG')
