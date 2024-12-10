@@ -15,6 +15,8 @@ class EditOrganization extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            $this->getSaveFormAction(),
+            $this->getCancelFormAction()
         ];
     }
     protected function handleRecordUpdate(Model $record, array $data): Model

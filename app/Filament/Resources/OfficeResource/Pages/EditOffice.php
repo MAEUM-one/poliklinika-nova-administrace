@@ -16,6 +16,8 @@ class EditOffice extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            $this->getSaveFormAction(),
+            $this->getCancelFormAction()
         ];
     }
 

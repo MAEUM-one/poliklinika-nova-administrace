@@ -14,6 +14,8 @@ class EditPerson extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            $this->getSaveFormAction(),
+            $this->getCancelFormAction()
         ];
     }
 }
