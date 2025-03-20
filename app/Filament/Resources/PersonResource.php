@@ -35,8 +35,7 @@ class PersonResource extends Resource
                     ->label('Pozice'),
                 Forms\Components\TextInput::make('EMAIL')
                     ->label('E-mail')
-                    ->email()
-                    ->required(),
+                    ->email(),
                 Forms\Components\TextInput::make('PHONE')
                     ->label('Telefon'),
                 Forms\Components\TextInput::make('CELL')
