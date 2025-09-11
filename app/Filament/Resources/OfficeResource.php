@@ -88,79 +88,79 @@ class OfficeResource extends Resource
                     ->schema([
                         Section::make('Nadpisy dní')
                             ->schema([
-                                TextInput::make('header_m1')->hiddenLabel(),
-                                TextInput::make('header_m2')->hiddenLabel()->hidden(fn ($get) => $get('header_m2') === 'Skrýt'),
-                                TextInput::make('header_m3')->hiddenLabel()->hidden(fn ($get) => $get('header_m3') === 'Skrýt'),
-                                TextInput::make('header_m4')->hiddenLabel()->hidden(fn ($get) => $get('header_m4') === 'Skrýt'),
+                                TextInput::make('header_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('header_m1', $state ?: ''))->nullable(),
+                                TextInput::make('header_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('header_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('header_m2') === 'Skrýt'),
+                                TextInput::make('header_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('header_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('header_m3') === 'Skrýt'),
+                                TextInput::make('header_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('header_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('header_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
                         // Sekce pro Pondělí
                         Section::make('Pondělí')
                             ->schema([
-                                TextInput::make('monday_m1')->hiddenLabel(),
-                                TextInput::make('monday_m2')->hiddenLabel()->hidden(fn ($get) => $get('monday_m2') === 'Skrýt'),
-                                TextInput::make('monday_m3')->hiddenLabel()->hidden(fn ($get) => $get('monday_m3') === 'Skrýt'),
-                                TextInput::make('monday_m4')->hiddenLabel()->hidden(fn ($get) => $get('monday_m4') === 'Skrýt'),
+                                TextInput::make('monday_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('monday_m1', $state ?: ''))->nullable(),
+                                TextInput::make('monday_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('monday_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('monday_m2') === 'Skrýt'),
+                                TextInput::make('monday_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('monday_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('monday_m3') === 'Skrýt'),
+                                TextInput::make('monday_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('monday_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('monday_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
 
                         // Sekce pro Úterý
                         Section::make('Úterý')
                             ->schema([
-                                TextInput::make('tuesday_m1')->hiddenLabel(),
-                                TextInput::make('tuesday_m2')->hiddenLabel()->hidden(fn ($get) => $get('tuesday_m2') === 'Skrýt'),
-                                TextInput::make('tuesday_m3')->hiddenLabel()->hidden(fn ($get) => $get('tuesday_m3') === 'Skrýt'),
-                                TextInput::make('tuesday_m4')->hiddenLabel()->hidden(fn ($get) => $get('tuesday_m4') === 'Skrýt'),
+                                TextInput::make('tuesday_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('tuesday_m1', $state ?: ''))->nullable(),
+                                TextInput::make('tuesday_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('tuesday_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('tuesday_m2') === 'Skrýt'),
+                                TextInput::make('tuesday_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('tuesday_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('tuesday_m3') === 'Skrýt'),
+                                TextInput::make('tuesday_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('tuesday_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('tuesday_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
 
                         // Sekce pro Středu
                         Section::make('Středa')
                             ->schema([
-                                TextInput::make('wednesday_m1')->hiddenLabel(),
-                                TextInput::make('wednesday_m2')->hiddenLabel()->hidden(fn ($get) => $get('wednesday_m2') === 'Skrýt'),
-                                TextInput::make('wednesday_m3')->hiddenLabel()->hidden(fn ($get) => $get('wednesday_m3') === 'Skrýt'),
-                                TextInput::make('wednesday_m4')->hiddenLabel()->hidden(fn ($get) => $get('wednesday_m4') === 'Skrýt'),
+                                TextInput::make('wednesday_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('wednesday_m1', $state ?: ''))->nullable(),
+                                TextInput::make('wednesday_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('wednesday_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('wednesday_m2') === 'Skrýt'),
+                                TextInput::make('wednesday_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('wednesday_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('wednesday_m3') === 'Skrýt'),
+                                TextInput::make('wednesday_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('wednesday_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('wednesday_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
 
                         // Sekce pro Čtvrtek
                         Section::make('Čtvrtek')
                             ->schema([
-                                TextInput::make('thursday_m1')->hiddenLabel(),
-                                TextInput::make('thursday_m2')->hiddenLabel()->hidden(fn ($get) => $get('thursday_m2') === 'Skrýt'),
-                                TextInput::make('thursday_m3')->hiddenLabel()->hidden(fn ($get) => $get('thursday_m3') === 'Skrýt'),
-                                TextInput::make('thursday_m4')->hiddenLabel()->hidden(fn ($get) => $get('thursday_m4') === 'Skrýt'),
+                                TextInput::make('thursday_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('thursday_m1', $state ?: ''))->nullable(),
+                                TextInput::make('thursday_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('thursday_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('thursday_m2') === 'Skrýt'),
+                                TextInput::make('thursday_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('thursday_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('thursday_m3') === 'Skrýt'),
+                                TextInput::make('thursday_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('thursday_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('thursday_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
 
                         // Sekce pro Pátek
                         Section::make('Pátek')
                             ->schema([
-                                TextInput::make('friday_m1')->hiddenLabel(),
-                                TextInput::make('friday_m2')->hiddenLabel()->hidden(fn ($get) => $get('friday_m2') === 'Skrýt'),
-                                TextInput::make('friday_m3')->hiddenLabel()->hidden(fn ($get) => $get('friday_m3') === 'Skrýt'),
-                                TextInput::make('friday_m4')->hiddenLabel()->hidden(fn ($get) => $get('friday_m4') === 'Skrýt'),
+                                TextInput::make('friday_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('friday_m1', $state ?: ''))->nullable(),
+                                TextInput::make('friday_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('friday_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('friday_m2') === 'Skrýt'),
+                                TextInput::make('friday_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('friday_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('friday_m3') === 'Skrýt'),
+                                TextInput::make('friday_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('friday_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('friday_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
 
                         // Sekce pro Sobotu
                         Section::make('Sobota')
                             ->schema([
-                                TextInput::make('saturday_m1')->hiddenLabel(),
-                                TextInput::make('saturday_m2')->hiddenLabel()->hidden(fn ($get) => $get('saturday_m2') === 'Skrýt'),
-                                TextInput::make('saturday_m3')->hiddenLabel()->hidden(fn ($get) => $get('saturday_m3') === 'Skrýt'),
-                                TextInput::make('saturday_m4')->hiddenLabel()->hidden(fn ($get) => $get('saturday_m4') === 'Skrýt'),
+                                TextInput::make('saturday_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('saturday_m1', $state ?: ''))->nullable(),
+                                TextInput::make('saturday_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('saturday_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('saturday_m2') === 'Skrýt'),
+                                TextInput::make('saturday_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('saturday_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('saturday_m3') === 'Skrýt'),
+                                TextInput::make('saturday_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('saturday_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('saturday_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
 
                         // Sekce pro Neděli
                         Section::make('Neděle')
                             ->schema([
-                                TextInput::make('sunday_m1')->hiddenLabel(),
-                                TextInput::make('sunday_m2')->hiddenLabel()->hidden(fn ($get) => $get('sunday_m2') === 'Skrýt'),
-                                TextInput::make('sunday_m3')->hiddenLabel()->hidden(fn ($get) => $get('sunday_m3') === 'Skrýt'),
-                                TextInput::make('sunday_m4')->hiddenLabel()->hidden(fn ($get) => $get('sunday_m4') === 'Skrýt'),
+                                TextInput::make('sunday_m1')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('sunday_m1', $state ?: ''))->nullable(),
+                                TextInput::make('sunday_m2')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('sunday_m2', $state ?: ''))->nullable()->hidden(fn ($get) => $get('sunday_m2') === 'Skrýt'),
+                                TextInput::make('sunday_m3')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('sunday_m3', $state ?: ''))->nullable()->hidden(fn ($get) => $get('sunday_m3') === 'Skrýt'),
+                                TextInput::make('sunday_m4')->hiddenLabel()->afterStateUpdated(fn ($state, $set) => $set('sunday_m4', $state ?: ''))->nullable()->hidden(fn ($get) => $get('sunday_m4') === 'Skrýt'),
                             ])
                             ->columns(5),
                     ])
@@ -183,6 +183,11 @@ class OfficeResource extends Resource
     public static function getRelations(): array
     {
         return [PeopleRelationManager::class];
+    }
+    public static function mutateFormDataBeforeSave(array $data): array
+    {
+        // Např. nastav prázdné hodnoty na null
+        return array_map(fn ($value) => $value === '' ? null : $value, $data);
     }
 
     public static function getPages(): array

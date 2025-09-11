@@ -67,7 +67,7 @@ class Office extends Model
                 };
                 if (!$o)
                     return 'Skrýt';
-                return $o->{$day};
+                return $o->{$day} ?? ' ';
             },
             set: function($value) use ($day, $index) {
                 $o = match ($index) {
@@ -77,10 +77,9 @@ class Office extends Model
                     default => $this->hours()->first(),
                 };
                 if ($o) {
-                    dd($o);
                     Log::debug($value . $day);
-                    $o->{$day} = $value;
-                    $o->save();
+                    $o->{$day} = $value === '' ? null : $value;
+                    $o->saveQuietly();
                 }
             }
         );

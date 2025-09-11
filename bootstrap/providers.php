@@ -3,4 +3,5 @@
 return [
     App\Providers\AppServiceProvider::class,
     App\Providers\Filament\NeofujinPanelProvider::class,
+    \App\Providers\DatabaseServiceProvider::class
 ];
