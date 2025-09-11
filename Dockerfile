@@ -12,7 +12,7 @@ ENV COMPOSER_MEMORY_LIMIT=-1
 
 # Nainstaluj PHP extensions potřebné pro Laravel a nástroje git a curl
 RUN apt-get update \
-    && apt-get install -y \
+    && apt-get install -y --no-install-recommends \
         libzip-dev \
         libpng-dev \
         libjpeg-dev \
@@ -24,6 +24,7 @@ RUN apt-get update \
         unzip \
         git \
         curl \
+    && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-xpm \
     && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd tokenizer xml
 
