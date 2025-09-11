@@ -1,22 +1,24 @@
-FROM php:8.2-cli
+# Base image s PHP 8.2 a Composerem
+FROM laravelsail/php82-composer:latest
 
+# Nastav pracovní složku
 WORKDIR /var/www/html
 
-# Závislosti PHP
-RUN apt-get update && apt-get install -y git unzip libzip-dev \
-    && docker-php-ext-install pdo pdo_mysql
-
-# Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php composer-setup.php --install-dir=/usr/bin --filename=composer \
-    && rm composer-setup.php
-
-# Zkopíruj projekt
+# Zkopíruj celý projekt do image
 COPY . .
+
+# Nastav environment proměnné pro Composer
+ENV COMPOSER_MEMORY_LIMIT=-1
+
+# Nainstaluj PHP extensions potřebné pro Laravel
+RUN apt-get update && apt-get install -y libzip-dev libpng-dev libonig-dev unzip \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # Composer install
 RUN composer install --no-dev --optimize-autoloader
 
+# Expose port
 EXPOSE 8000
 
+# Start Laravel
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
