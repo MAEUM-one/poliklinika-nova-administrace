@@ -17,11 +17,14 @@ RUN apt-get update \
         libpng-dev \
         libjpeg-dev \
         libfreetype6-dev \
+        libwebp-dev \
+        libxpm-dev \
+        libxml2-dev \
         libonig-dev \
         unzip \
         git \
         curl \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-xpm \
     && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd tokenizer xml
 
 # Composer install
