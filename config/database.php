@@ -58,6 +58,8 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::ATTR_EMULATE_PREPARES => true,   // obejde některé bugy
+                PDO::ATTR_STRINGIFY_FETCHES => true, // někdy nutné pro starší servery
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
