@@ -54,7 +54,6 @@ class Office extends Model
         return $this->belongsToMany(Person::class, 'mdc_people_list', 'OFFICE_ID', 'PERSON_ID');
     }
 
-
     public function hoursForDay($day = 'MON', $index = 1): Attribute
     {
         return Attribute::make(

@@ -11,6 +11,7 @@
         "filament/filament": "^3.2",
         "guava/filament-icon-picker": "^2.2",
         "hasnayeen/themes": "^3.0",
+        "ibrahimbougaoua/filament-sort-order": "^1.1",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "owenvoke/blade-fontawesome": "^2.7",

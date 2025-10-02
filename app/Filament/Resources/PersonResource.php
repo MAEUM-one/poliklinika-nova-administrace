@@ -9,6 +9,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Filament\Tables;
+use IbrahimBougaoua\FilamentSortOrder\Actions\DownStepAction;
+use IbrahimBougaoua\FilamentSortOrder\Actions\UpStepAction;
 
 class PersonResource extends Resource
 {
@@ -56,7 +58,9 @@ class PersonResource extends Resource
                 Tables\Columns\TextColumn::make('EMAIL')->label('E-mail'),
                 Tables\Columns\TextColumn::make('POSITION')->label('Pozice'),
             ])
-            ->filters([]);
+            ->filters([])
+            ->reorderable('sort_order')
+            ->defaultSort('sort_order', 'asc');
     }
 
     public static function getPages(): array

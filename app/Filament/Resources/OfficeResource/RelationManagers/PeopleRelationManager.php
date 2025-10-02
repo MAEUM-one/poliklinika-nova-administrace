@@ -7,6 +7,8 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use IbrahimBougaoua\FilamentSortOrder\Actions\DownStepAction;
+use IbrahimBougaoua\FilamentSortOrder\Actions\UpStepAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -42,6 +44,7 @@ class PeopleRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('NAME')
             ->recordTitle(fn (Model $record) => $record->full_name)
+            ->reorderable('sort_order')
             ->columns([
                 Tables\Columns\TextColumn::make('NAME')->label('Jméno'),
                 Tables\Columns\TextColumn::make('SURNAME')->label('Příjmení'),
@@ -57,6 +60,7 @@ class PeopleRelationManager extends RelationManager
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DetachAction::make()
             ])
+            ->defaultSort('sort_order', 'asc')
             ->bulkActions([
             ]);
     }

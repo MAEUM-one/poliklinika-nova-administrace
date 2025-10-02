@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use IbrahimBougaoua\FilamentSortOrder\Traits\SortOrder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
+    use SortOrder;
     protected $table = 'mdc_people';
     protected $primaryKey = 'PERSON_ID';
     public $timestamps = false;
