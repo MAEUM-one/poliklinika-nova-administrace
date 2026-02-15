@@ -17,7 +17,7 @@ class PersonResource extends Resource
     protected static ?string $model = Person::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
-
+protected static ?string $recordTitleAttribute = 'SURNAME';
     protected static ?string $label = 'Osoba';
     protected static ?string $pluralLabel = 'Osoby';
 
