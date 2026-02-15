@@ -31,6 +31,24 @@ class PersonResource extends Resource
                 Forms\Components\TextInput::make('SURNAME')
                     ->label('Příjmení')
                     ->required(),
+                Forms\Components\Select::make('IMAGE')
+                    ->options([
+                        'doctor_male' => 'Doktor',
+                        'doctor_female' => 'Doktorka',
+                        'nurse_male' => 'Zdravotní bratr',
+                        'nurse_female' => 'Zdravotní sestra',
+                        'assistant_male' => 'Asistent',
+                        'assistant_female' => 'Asistentka',
+                        'administrative_male' => 'Administrativní pracovník',
+                        'administrative_female' => 'Administrativní pracovnice',
+                        'ceo_male' => 'Jednatel',
+                        'ceo_female' => 'Jednatelka',
+                        'jicin_nurse' => 'Sestra Jičín',
+                        'jicin_rental' => 'Sestra - Půjčovna pomůcek'
+                    ])
+                    ->label('Obrázek osoby')
+                    ->required()
+                    ->helperText('Upravuje obrázek osoby'),
                 Forms\Components\TextInput::make('TITLE')
                     ->label('Titul'),
                 Forms\Components\TextInput::make('POSITION')
