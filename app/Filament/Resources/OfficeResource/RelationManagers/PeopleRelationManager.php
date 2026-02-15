@@ -42,7 +42,7 @@ class PeopleRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('full_name')
+            ->recordTitleAttribute('SURNAME')
             ->recordTitle(fn (Model $record) => $record->full_name)
             ->reorderable('sort_order')
             ->columns([
