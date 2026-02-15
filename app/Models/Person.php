@@ -18,7 +18,7 @@ class Person extends Model
     ];
     protected $fillable = [
         'NAME', 'SURNAME', 'TITLE', 'FJID', 'POSITION', 'EMAIL',
-        'PHONE', 'CELL', 'WEB', 'QUALIFICATION'
+        'PHONE', 'CELL', 'WEB', 'QUALIFICATION', 'IMAGE'
     ];
 
     public function fullName(): Attribute {
