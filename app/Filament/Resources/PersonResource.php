@@ -47,7 +47,6 @@ protected static ?string $recordTitleAttribute = 'SURNAME';
                         'jicin_rental' => 'Sestra - Půjčovna pomůcek'
                     ])
                     ->label('Obrázek osoby')
-                    ->required()
                     ->helperText('Upravuje obrázek osoby'),
                 Forms\Components\TextInput::make('TITLE')
                     ->label('Titul'),
